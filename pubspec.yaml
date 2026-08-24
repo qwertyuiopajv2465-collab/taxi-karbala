@@ -1,4 +1,3 @@
-
 name: taxi_karbala
 description: Taxi Karbala application.
 publish_to: "none"
@@ -8,16 +7,15 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.5.0 <4.0.0"
 
-dependencies:sha256:6ca361089ef349cfc99644b90fa92fd85c960378218b56be881f5ca052a4be32
+dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.8
+  google_mobile_ads: ^9.1.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^5.0.0
 
 flutter:
