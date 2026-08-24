@@ -8,7 +8,7 @@ version: 1.0.0+1
 environment:
   sdk: ">=3.5.0 <4.0.0"
 
-dependencies:
+dependencies:sha256:6ca361089ef349cfc99644b90fa92fd85c960378218b56be881f5ca052a4be32
   flutter:
     sdk: flutter
 
