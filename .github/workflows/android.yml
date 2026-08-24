@@ -11,23 +11,34 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.35.0'
           channel: stable
 
+      - name: Create Flutter project
+        run: |
+          mkdir /tmp/taxi_app
+          flutter create --platforms=android /tmp/taxi_app
+
+      - name: Copy application files
+        run: |
+          cp pubspec.yaml /tmp/taxi_app/pubspec.yaml
+          cp lib/main.dart /tmp/taxi_app/lib/main.dart
+
       - name: Install dependencies
+        working-directory: /tmp/taxi_app
         run: flutter pub get
 
       - name: Build APK
+        working-directory: /tmp/taxi_app
         run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: taxi-karbala-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: /tmp/taxi_app/build/app/outputs/flutter-apk/app-release.apk
